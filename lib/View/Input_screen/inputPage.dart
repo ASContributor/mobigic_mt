@@ -122,7 +122,7 @@ class _InputPageState extends State<InputPage> {
                               controller: InputBlocRef.inputController,
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
-                                    RegExp('[a-zA-Z]'))
+                                    RegExp('[a-z]'))
                               ],
                               validator: (value) {
                                 if (value!.isEmpty ||

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_dialogs/material_dialogs.dart';
@@ -132,6 +133,10 @@ class _GridviewDetailState extends State<GridviewDetail> {
             context: context,
             actions: [
               TextField(
+                inputFormatters: [
+                  FilteringTextInputFormatter.allow(RegExp('[a-z]'))
+                ],
+                maxLength: 1,
                 controller: updateController,
               ),
               FilledButton(
