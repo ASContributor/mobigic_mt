@@ -141,6 +141,7 @@ class _InputPageState extends State<InputPage> {
                             FilledButton(
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
+                                    InputBlocRef.gridList = [];
                                     var index = 0;
                                     for (int i = 0; i < col; i++) {
                                       for (int j = 0; j < row; j++) {
@@ -149,14 +150,7 @@ class _InputPageState extends State<InputPage> {
                                         index++;
                                       }
                                     }
-                                    // Navigator.push(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: ((context) =>
-                                    //             GridviewDetail(
-                                    //               col: col,
-                                    //               row: row,
-                                    //             ))));
+
                                     Navigator.pushNamed(
                                       context,
                                       '/GridviewDetail',

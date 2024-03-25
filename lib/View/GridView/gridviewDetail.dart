@@ -131,10 +131,8 @@ class _GridviewDetailState extends State<GridviewDetail> {
             color: Colors.white,
             context: context,
             actions: [
-              Expanded(
-                child: TextField(
-                  controller: updateController,
-                ),
+              TextField(
+                controller: updateController,
               ),
               FilledButton(
                   onPressed: () {
