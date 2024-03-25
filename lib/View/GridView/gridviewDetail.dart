@@ -10,8 +10,9 @@ import 'package:alert_dialog/alert_dialog.dart';
 class GridviewDetail extends StatefulWidget {
   const GridviewDetail({
     super.key,
+    required this.inputBloc,
   });
-
+  final InputBloc inputBloc;
   @override
   State<GridviewDetail> createState() => _GridviewDetailState();
 }
@@ -25,8 +26,8 @@ class _GridviewDetailState extends State<GridviewDetail> {
   @override
   void initState() {
     // TODO: implement initState
-    col = int.parse(BlocProvider.of<InputBloc>(context).colController.text);
-    row = int.parse(BlocProvider.of<InputBloc>(context).rowController.text);
+    col = int.parse(widget.inputBloc.colController.text);
+    row = int.parse(widget.inputBloc.rowController.text);
     super.initState();
   }
 
@@ -59,6 +60,10 @@ class _GridviewDetailState extends State<GridviewDetail> {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
+              // Search Pattern :
+              // 1) Horizontal Search
+              // 2)Vertical Search
+              // 3)Diagonally Search (from top-left to bottom-right)
               searchField(context),
               const SizedBox(
                 height: 10,
@@ -70,7 +75,7 @@ class _GridviewDetailState extends State<GridviewDetail> {
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisSpacing: row == 0 ? 1.0 : row.toDouble(),
                           crossAxisCount: col == 0 ? 1 : col),
-                      itemBuilder: itemDetails))
+                      itemBuilder: itemDetails)),
             ],
           ),
         ),
@@ -92,7 +97,7 @@ class _GridviewDetailState extends State<GridviewDetail> {
             onPressed: () {
               List<List<int>> searchResults = searchInGrid(
                   _searchController.text,
-                  grid: BlocProvider.of<InputBloc>(context).gridList,
+                  grid: widget.inputBloc.gridList,
                   cols: col,
                   rows: row);
               if (searchResults.isNotEmpty) {
@@ -121,8 +126,7 @@ class _GridviewDetailState extends State<GridviewDetail> {
     return GestureDetector(
       onTap: () {
         Dialogs.materialDialog(
-            msg:
-                'Current Number : ${BlocProvider.of<InputBloc>(context).gridList[index]}',
+            msg: 'Current Number : ${widget.inputBloc.gridList[index]}',
             title: "Update Element",
             color: Colors.white,
             context: context,
@@ -134,9 +138,8 @@ class _GridviewDetailState extends State<GridviewDetail> {
               ),
               FilledButton(
                   onPressed: () {
-                    BlocProvider.of<InputBloc>(context).add(
-                        UpdateElementbyIndexEvent(
-                            Index: index, Value: updateController.text));
+                    widget.inputBloc.add(UpdateElementbyIndexEvent(
+                        Index: index, Value: updateController.text));
                     setState(() {
                       Navigator.pop(context);
                     });
@@ -149,9 +152,9 @@ class _GridviewDetailState extends State<GridviewDetail> {
             isHighlighted ? Colors.yellow : Color.fromARGB(255, 236, 232, 244),
         child: Center(
           child: Text(
-            index >= BlocProvider.of<InputBloc>(context).gridList.length
+            index >= widget.inputBloc.gridList.length
                 ? ""
-                : BlocProvider.of<InputBloc>(context).gridList[index],
+                : widget.inputBloc.gridList[index],
             style: TextStyle(fontWeight: FontWeight.w500),
           ),
         ),

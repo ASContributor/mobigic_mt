@@ -158,7 +158,11 @@ class _InputPageState extends State<InputPage> {
                                     //               row: row,
                                     //             ))));
                                     Navigator.pushNamed(
-                                        context, '/GridviewDetail',arguments: {col:col,row:row});
+                                      context,
+                                      '/GridviewDetail',
+                                      arguments:
+                                          BlocProvider.of<InputBloc>(context),
+                                    );
                                   }
                                 },
                                 child: Text('insert $row X $col'))

@@ -26,27 +26,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 162, 162, 162),
         body: Center(
-            child: Card(
-          elevation: 50,
-          shadowColor: Colors.black,
-          color: Colors.white,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Container(
-              color: Colors.white,
-              padding: const EdgeInsets.all(8.0),
-              child: Stack(children: [
-                Image(
-                  image: AssetImage('assets/images.png'),
-                  width: MediaQuery.of(context).size.width * 0.8,
-                ),
-                LoadingAnimationWidget.threeRotatingDots(
-                    color: Colors.blue, size: 40)
-              ]),
-            ),
-          ),
-        )));
+            child: Stack(children: [
+      Image(
+        image: AssetImage('assets/images.png'),
+        width: MediaQuery.of(context).size.width * 0.8,
+      ),
+      LoadingAnimationWidget.threeRotatingDots(color: Colors.blue, size: 40)
+    ])));
   }
 }
