@@ -10,7 +10,6 @@ class AppRoute {
   static const String splashScreen = '/';
   static const String gridviewDetailScreen = '/GridviewDetail';
   static const String InputScreen = '/InputScreen';
-  static const String WordSearch = '/WordSearchScreen';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {

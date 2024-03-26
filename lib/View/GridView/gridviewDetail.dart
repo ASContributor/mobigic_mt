@@ -61,10 +61,6 @@ class _GridviewDetailState extends State<GridviewDetail> {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              // Search Pattern :
-              // 1) Horizontal Search
-              // 2)Vertical Search
-              // 3)Diagonally Search (from top-left to bottom-right)
               searchField(context),
               const SizedBox(
                 height: 10,
@@ -134,7 +130,7 @@ class _GridviewDetailState extends State<GridviewDetail> {
             actions: [
               TextField(
                 inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp('[a-z]'))
+                  FilteringTextInputFormatter.allow(RegExp('[a-zA-Z]'))
                 ],
                 maxLength: 1,
                 controller: updateController,
@@ -151,14 +147,15 @@ class _GridviewDetailState extends State<GridviewDetail> {
             ]);
       },
       child: Card(
-        color:
-            isHighlighted ? Colors.yellow : Color.fromARGB(255, 236, 232, 244),
+        color: isHighlighted
+            ? const Color.fromARGB(255, 251, 237, 108)
+            : Color.fromARGB(255, 236, 232, 244),
         child: Center(
           child: Text(
             index >= widget.inputBloc.gridList.length
                 ? ""
                 : widget.inputBloc.gridList[index],
-            style: TextStyle(fontWeight: FontWeight.w500),
+            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20),
           ),
         ),
       ),

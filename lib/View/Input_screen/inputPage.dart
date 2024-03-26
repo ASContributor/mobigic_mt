@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobigic_mt/View/GridView/gridviewDetail.dart';
 import 'package:mobigic_mt/View/Input_screen/InputBloc/input_bloc.dart';
@@ -122,7 +120,7 @@ class _InputPageState extends State<InputPage> {
                               controller: InputBlocRef.inputController,
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
-                                    RegExp('[a-z]'))
+                                    RegExp('[a-zA-Z]'))
                               ],
                               validator: (value) {
                                 if (value!.isEmpty ||

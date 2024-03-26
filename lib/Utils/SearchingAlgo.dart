@@ -8,7 +8,7 @@ List<List<int>> searchInGrid(
 
   List<List<int>> result = [];
 
-  //  Horizontally Search
+  //  Horizontal Search
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j <= cols - searchText.length; j++) {
       String word = convertedGrid[i].sublist(j, j + searchText.length).join();
@@ -23,7 +23,7 @@ List<List<int>> searchInGrid(
     }
   }
 
-  //  Vertically Search
+  //  Vertical Search
   for (int i = 0; i <= rows - searchText.length; i++) {
     for (int j = 0; j < cols; j++) {
       String word = '';
@@ -41,7 +41,7 @@ List<List<int>> searchInGrid(
     }
   }
 
-  //  Diagonally Search (from top-left to bottom-right)
+  //  Diagonal Search (from top-left to bottom-right)
   for (int i = 0; i <= rows - searchText.length; i++) {
     for (int j = 0; j <= cols - searchText.length; j++) {
       String word = '';
