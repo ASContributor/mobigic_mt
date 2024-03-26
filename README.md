@@ -1,5 +1,5 @@
 # mobigic_mt
-
+<h2>Grid Searching App</h2>
 <h3> Application Screens:</h3>
 <div class="row">
 <img src="git_Image/inputScreen.png"  width="200" height="400" />
